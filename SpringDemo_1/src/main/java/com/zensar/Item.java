@@ -7,6 +7,7 @@ public class Item {
     
     public Item() {
 	// TODO Auto-generated constructor stub
+	System.out.println("called default");
     }
     public Item(String name, double price) {
 	super();

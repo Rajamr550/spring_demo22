@@ -1,23 +1,39 @@
 package com.zensar;
 
-import java.util.Iterator;
+
+
 import java.util.Map;
+
+
 
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class App {
-    public static void main(String[] args) {
-	int totalPrice = 0;
-//IoC container provided by Spring framework
-	AbstractApplicationContext iocContainer = new ClassPathXmlApplicationContext("beans.xml");
-	Item item = (Item) iocContainer.getBean("itemBean");
-	Order order = (Order) iocContainer.getBean("orderBean");
-	Map<String, Item> beans = iocContainer.getBeansOfType(Item.class);
 
-	for (Item price : beans.values()) {
-	    totalPrice += price.getPrice();
-	}
-	System.out.println("Total Price : " + totalPrice);
-    }
+
+public class App {
+public static void main(String[] args) {
+AbstractApplicationContext iocContainer =
+new ClassPathXmlApplicationContext("beans.xml");
+
+Item item = (Item) iocContainer.getBean("itemBean");
+
+Order order = (Order) iocContainer.getBean("orderBean");
+
+
+
+
+System.out.println("order1 " + order);
+
+Map<String, Item> map=iocContainer.getBeansOfType(Item.class);
+
+for(Item price:map.values()) {
+double totalPrice = price.getPrice();
+System.out.println(totalPrice);
+}
+
+iocContainer.registerShutdownHook();
+
+
+}
 }
