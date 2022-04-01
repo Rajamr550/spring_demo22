@@ -15,6 +15,10 @@ http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 
 	</bean>
+	
+	<bean id = "lifeCycleBean" class="com.zensar.LifeCycleBean">
+	<property name="price" value="9000"></property>
+	</bean>
 
 	<bean id="itemBean" class="com.zensar.Item">
 		<constructor-arg name="name" value="Laptop" />
@@ -42,10 +46,10 @@ http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 	</bean>
 
-	<bean id="orderBean3" class="com.zensar.Order">
-		<property name="item" ref="itemBean3" />
-		<property name="title" value="Purchase" />
+<!-- 	<bean id="orderBean3" class="com.zensar.Order"> -->
+<!-- 		<property name="item" ref="itemBean3" /> -->
+<!-- 		<property name="title" value="Purchase" /> -->
 
-	</bean>
+<!-- 	</bean> -->
 
 </beans>

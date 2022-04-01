@@ -16,21 +16,26 @@ public static void main(String[] args) {
 AbstractApplicationContext iocContainer =
 new ClassPathXmlApplicationContext("beans.xml");
 
-Item item = (Item) iocContainer.getBean("itemBean");
+/*
+ * Item item = (Item) iocContainer.getBean("itemBean");
+ * 
+ * Order order = (Order) iocContainer.getBean("orderBean");
+ * 
+ * 
+ * 
+ * 
+ * System.out.println("order1 " + order);
+ * 
+ * Map<String, Item> map=iocContainer.getBeansOfType(Item.class);
+ * 
+ * for(Item price:map.values()) { double totalPrice = price.getPrice();
+ * System.out.println(totalPrice); }
+ */
 
-Order order = (Order) iocContainer.getBean("orderBean");
+LifeCycleBean lifeCycleBean = (LifeCycleBean)iocContainer.getBean("lifeCycleBean");
+iocContainer.registerShutdownHook();
 
 
-
-
-System.out.println("order1 " + order);
-
-Map<String, Item> map=iocContainer.getBeansOfType(Item.class);
-
-for(Item price:map.values()) {
-double totalPrice = price.getPrice();
-System.out.println(totalPrice);
-}
 
 iocContainer.registerShutdownHook();
 
